@@ -19,7 +19,7 @@ public extension UINavigationController {
     /**
      Default is 2.0
     */
-    public var progressHeight: CGFloat {
+    var progressHeight: CGFloat {
         get { return progressView.frame.height }
         set {
             progressView.frame.origin.y = navigationBar.frame.height - newValue
@@ -31,7 +31,7 @@ public extension UINavigationController {
      The color shown for the portion of the progress bar that is not filled.
      default is clear color.
     */
-    public var trackTintColor: UIColor? {
+    var trackTintColor: UIColor? {
         get { return progressView.trackTintColor }
         set { progressView.trackTintColor = newValue }
     }
@@ -40,7 +40,7 @@ public extension UINavigationController {
      The color shown for the portion of the progress bar that is filled.
      default is (r: 0, g: 122, b: 225, a: 255.
     */
-    public var progressTintColor: UIColor? {
+    var progressTintColor: UIColor? {
         get { return progressView.progressTintColor }
         set { progressView.progressTintColor = newValue }
     }
@@ -49,7 +49,7 @@ public extension UINavigationController {
      The current progress is represented by a floating-point value between 0.0 and 1.0,
      inclusive, where 1.0 indicates the completion of the task. The default value is 0.0.
     */
-    public var progress: Float {
+    var progress: Float {
         get { return progressView.progress }
         set { progressView.progress = newValue }
     }
@@ -92,7 +92,7 @@ public extension UINavigationController {
     - parameter progress: The new progress value.
     - parameter animated: true if the change should be animated, false if the change should happen immediately.
     */
-    public func setProgress(_ progress: Float, animated: Bool) {
+    func setProgress(_ progress: Float, animated: Bool) {
         progressView.bar.alpha = 1
         progressView.setProgress(progress, animated: animated)
     }
@@ -100,7 +100,7 @@ public extension UINavigationController {
     /**
      While progress is changed to 1.0, the bar will fade out. After that, progress will be 0.0.
     */
-    public func finishProgress() {
+    func finishProgress() {
         progressView.bar.alpha = 1
         progressView.setProgress(1, animated: true)
         
@@ -116,7 +116,7 @@ public extension UINavigationController {
     /**
      While progress is changed to 0.0, the bar will fade out.
     */
-    public func cancelProgress() {
+    func cancelProgress() {
         progressView.setProgress(0, animated: true)
         
         UIView.animate(withDuration: 0.25, animations: {
